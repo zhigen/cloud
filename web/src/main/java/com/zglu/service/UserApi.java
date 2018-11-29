@@ -1,13 +1,12 @@
 package com.zglu.service;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient("eureka-provider")
+@FeignClient("api")
 public interface UserApi {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/test")
+    @GetMapping(value = "/test")
     String test();
 
 }

@@ -1,6 +1,9 @@
+server:
+  port: 9001
+
 spring:
   application:
-    name: eureka-provider
+    name: api
 
 eureka:
   client:

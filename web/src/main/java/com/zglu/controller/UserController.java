@@ -12,7 +12,7 @@ public class UserController {
     private UserApi userApi;
 
     @ResponseBody
-    @GetMapping(value = "/router")
+    @GetMapping(value = "/test")
     public String router(){
         return userApi.test();
     }
