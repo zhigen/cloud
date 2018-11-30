@@ -6,6 +6,7 @@
         <module>eureka</module>
         <module>api</module>
         <module>web</module>
+        <module>zuul</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
 
