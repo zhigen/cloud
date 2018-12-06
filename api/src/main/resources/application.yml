@@ -5,6 +5,12 @@ spring:
   application:
     name: api
 
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://172.16.50.221:3306/java_text?useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
 eureka:
   client:
     serviceUrl:
