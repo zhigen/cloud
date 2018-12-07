@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: api
+    name: sys
 
   datasource:
     username: root
