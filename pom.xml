@@ -4,10 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modules>
         <module>eureka</module>
-        <module>api</module>
+        <module>sys</module>
         <module>web</module>
         <module>zuul</module>
         <module>dao</module>
+        <module>common</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
 

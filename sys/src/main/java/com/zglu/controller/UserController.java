@@ -1,5 +1,7 @@
 package com.zglu.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.zglu.entity.Role;
 import com.zglu.repo.RoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ public class UserController {
     @GetMapping(value = "/test")
     String get(){
         Role role = roleRepo.save(new Role());
-        return role.getId()+"";
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+        return gson.toJson(role);
     }
 }
