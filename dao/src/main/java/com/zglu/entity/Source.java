@@ -12,9 +12,9 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "zglu_role")
+@Table(name = "zglu_source")
 @EntityListeners(AuditingEntityListener.class)
-public class Role {
+public class Source {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

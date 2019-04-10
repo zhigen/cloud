@@ -12,13 +12,16 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "zglu_role")
+@Table(name = "zglu_permission")
 @EntityListeners(AuditingEntityListener.class)
-public class Role {
+public class Permission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private int sourceId;
     private String name;
+    private String url;
+    private String method;
     @CreatedDate
     private Date createdDate;
     @CreatedBy
