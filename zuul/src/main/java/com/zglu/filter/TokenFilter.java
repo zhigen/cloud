@@ -2,8 +2,14 @@ package com.zglu.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
+import com.zglu.result.Result;
+import com.zglu.result.ResultCode;
+import com.zglu.utils.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.servlet.HandlerMapping;
+
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @Slf4j
 public class TokenFilter extends ZuulFilter {
@@ -27,19 +33,36 @@ public class TokenFilter extends ZuulFilter {
     public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
-        log.info("send {} request to {}", request.getMethod(), request.getRequestURL().toString());
-        String token = request.getParameter("token");
-        if (token == null) {
-            log.warn("token is empty");
-            ctx.setSendZuulResponse(false);
-            ctx.setResponseStatusCode(401);
-            try {
-                ctx.getResponse().getWriter().write("token is empty");
-            } catch (Exception e) {
-            }
+        String token = request.getHeader("token");
+        Integer userId = this.get(token);
+        if (userId == null) {
+            return Result.error(ResultCode.USER_TOKEN_ERROR);
+        }
+        final String[] url = new String[]{request.getRequestURI()};
+        Map map = (Map) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
+        map.forEach((k, v) -> url[0] = url[0].replaceFirst("/" + v, "/{" + k + "}"));
+
+//        User user = userService.get(userId);
+//        if (user == null) {
+//            return Result.error(ResultCode.USER_NOT_EXIST);
+//        }
+//        if (!user.getEnable()) {
+//            return Result.error(ResultCode.USER_DISABLE);
+//        }
+//
+//        if (!permissionService.check(userId,url[0],request.getMethod())) {
+//            return Result.error(ResultCode.ROLE_NOT_PERMISSION);
+//        }
+        return null;
+    }
+
+    public Integer get(String token){
+        try {
+            Map map = TokenUtil.parserToken(token);
+            Integer userId = (Integer)map.get("userId");
+            return userId;
+        } catch (Exception e) {
             return null;
         }
-        log.info("access is ok");
-        return null;
     }
 }

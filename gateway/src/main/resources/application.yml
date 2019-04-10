@@ -1,0 +1,26 @@
+server:
+  port: 9092
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: webflux_route
+        uri: lb://webflux
+        predicates:
+        - Path=/flux/**
+        filters:
+        - WebFilter
+
+      - id: web_route
+        uri: lb://web
+        predicates:
+          - Path=/**
+        filters:
+          - WebFilter
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

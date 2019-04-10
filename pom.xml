@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--子模块-->
     <modules>
         <module>eureka</module>
         <module>sys</module>
@@ -9,18 +10,21 @@
         <module>zuul</module>
         <module>dao</module>
         <module>common</module>
+        <module>gateway</module>
+        <module>webflux</module>
+        <module>mongodao</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
-
+    <!--项目信息-->
     <groupId>com.zglu</groupId>
     <artifactId>cloud</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-
+    <!--cloud版本-->
     <properties>
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
     </properties>
-
+    <!--cloud库-->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -32,14 +36,16 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+    <!--第三方库-->
     <dependencies>
+        <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
+        <!--java11依赖-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -66,7 +72,7 @@
             <version>1.1.1</version>
         </dependency>
     </dependencies>
-
+    <!--maven插件-->
     <build>
         <plugins>
             <plugin>
@@ -79,5 +85,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RoleController {
+
     @Autowired
     private RoleApi roleApi;
     @Autowired
@@ -19,7 +20,8 @@ public class RoleController {
     @ResponseBody
     @GetMapping(value = "/role/{id}")
     public RoleVo get(@PathVariable int id){
-        return roleApi.get(id);
+        RoleVo roleVo = roleApi.get(id);
+        return roleVo;
     }
 
     @ResponseBody

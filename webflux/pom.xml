@@ -9,17 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sys</artifactId>
+    <artifactId>webflux</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.zglu</groupId>
-            <artifactId>dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zglu</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>mongodao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -28,8 +23,9 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.0.2.RELEASE</version>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <version>2.0.6.RELEASE</version>
         </dependency>
     </dependencies>
+
 </project>
