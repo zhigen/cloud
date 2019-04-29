@@ -14,7 +14,8 @@ public enum ResultCode {
     USER_DISABLE(20004, "用户已被禁用"),
 
     //权限模块
-    ROLE_NOT_PERMISSION(30001, "角色无此权限"),
+    PERMISSION_NOT_EXIST(30001, "权限不存在"),
+    USET_NOT_PERMISSION(30002, "用户无此权限"),
 
     SUCCESS(1, "成功");
 
