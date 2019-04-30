@@ -16,12 +16,12 @@ public class Result<T> {
         this.message = resultCode.message();
     }
 
-    public boolean ifSuccess(){
-        return this.getCode()==1;
+    public boolean ifSuccess() {
+        return this.getCode() == 1;
     }
 
-    public boolean ifError(){
-        return this.getCode()!=1;
+    public boolean ifError() {
+        return this.getCode() != 1;
     }
 
     public static Result success() {
