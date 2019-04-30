@@ -14,6 +14,7 @@ public class WebFilter extends AbstractGatewayFilterFactory<Object> {
     @Override
     public GatewayFilter apply(Object config) {
         return ((exchange, chain) -> {
+            //重写url
             ServerHttpRequest request = exchange.getRequest();
             UriComponents uri = UriComponentsBuilder.fromHttpUrl(exchange.getRequest().getURI().toString().replaceFirst("/flux","")).build();
             request = request.mutate().uri(uri.toUri()).build();
