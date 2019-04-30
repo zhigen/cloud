@@ -1,5 +1,6 @@
 package com.zglu.controller;
 
+import com.zglu.result.Result;
 import com.zglu.service.RoleApi;
 import com.zglu.utils.AmapApi;
 import com.zglu.vo.RoleVo;
@@ -19,9 +20,9 @@ public class RoleController {
 
     @ResponseBody
     @GetMapping(value = "/role/{id}")
-    public RoleVo get(@PathVariable int id){
-        RoleVo roleVo = roleApi.get(id);
-        return roleVo;
+    public Result<RoleVo> get(@PathVariable int id){
+        Result<RoleVo> result = roleApi.get(id);
+        return result;
     }
 
     @ResponseBody
