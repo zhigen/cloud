@@ -7,19 +7,19 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: webflux_route
-        uri: lb://webflux
-        predicates:
-        - Path=/flux/**
-        filters:
-        - WebFilter
+        - id: webflux_route
+          uri: lb://webflux
+          predicates:
+            - Path=/flux/**
+          filters:
+            - WebFilter
 
-      - id: web_route
-        uri: lb://web
-        predicates:
-          - Path=/**
-        filters:
-          - WebFilter
+        - id: web_route
+          uri: lb://web
+          predicates:
+            - Path=/**
+          filters:
+            - WebFilter
 eureka:
   client:
     serviceUrl:

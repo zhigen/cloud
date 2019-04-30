@@ -12,14 +12,15 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class Test {
+
     @Autowired
     private TestHandle testHandle;
 
     @Bean
     public RouterFunction<ServerResponse> timerRouter() {
         return route(GET("/test/{id}/{id2}"), req -> testHandle.test(req))
-                .andRoute(GET("/test/test/{id}"), req -> testHandle.test2(req))
+                .andRoute(POST("/test/test/{id}"), req -> testHandle.test2(req))
                 .andRoute(GET("/times"), testHandle::times)
-                .andRoute(GET("/user/{name}"), req -> testHandle.save(req));
+                .andRoute(POST("/user/{name}"), req -> testHandle.save(req));
     }
 }
