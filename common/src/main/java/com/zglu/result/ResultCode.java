@@ -15,12 +15,11 @@ public enum ResultCode {
 
     //权限模块
     PERMISSION_NOT_EXIST(30001, "权限不存在"),
-    USET_NOT_PERMISSION(30002, "用户无此权限"),
+    USER_NOT_PERMISSION(30002, "用户无此权限"),
 
     SUCCESS(1, "成功");
 
     private Integer code;
-
     private String message;
 
     ResultCode(Integer code, String message) {
@@ -29,10 +28,10 @@ public enum ResultCode {
     }
 
     public Integer code() {
-        return this.code;
+        return code;
     }
 
     public String message() {
-        return this.message;
+        return message;
     }
 }

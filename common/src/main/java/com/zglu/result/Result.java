@@ -12,20 +12,24 @@ public class Result<T> {
     private T data;
 
     private Result(ResultCode resultCode) {
-        this.code = resultCode.code();
-        this.message = resultCode.message();
+        code = resultCode.code();
+        message = resultCode.message();
     }
 
     public boolean ifSuccess() {
-        return this.getCode() == 1;
+        return code == 1;
     }
 
     public boolean ifError() {
-        return this.getCode() != 1;
+        return code != 1;
     }
 
-    public static Result success() {
-        return new Result(ResultCode.SUCCESS);
+    public static <T> Result<T> success() {
+        return new Result<>(ResultCode.SUCCESS);
+    }
+
+    public static <T> Result<T> error() {
+        return new Result<>(ResultCode.ERROR);
     }
 
     public static <T> Result<T> success(T data) {
@@ -34,11 +38,7 @@ public class Result<T> {
         return result;
     }
 
-    public static Result error() {
-        return new Result(ResultCode.ERROR);
-    }
-
-    public static Result error(ResultCode resultCode) {
-        return new Result(resultCode);
+    public static <T> Result<T> error(ResultCode resultCode) {
+        return new Result<>(resultCode);
     }
 }
