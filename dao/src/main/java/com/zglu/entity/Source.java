@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "zglu_source")
+@Table(name = "source")
 @EntityListeners(AuditingEntityListener.class)
 public class Source {
     @Id

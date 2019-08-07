@@ -12,18 +12,15 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "zglu_user")
+@Table(name = "user")
 @EntityListeners(AuditingEntityListener.class)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String name;
     private String login_name;
     private String password;
-    private String name;
-    private String phone;
-    private boolean sex = true;
-    private String id_card;
     @CreatedDate
     private Date createdDate;
     @CreatedBy

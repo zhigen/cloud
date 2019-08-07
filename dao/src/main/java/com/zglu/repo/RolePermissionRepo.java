@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface RolePermissionRepo extends PagingAndSortingRepository<RolePermission, Integer> {
-    List<RolePermission> findByRoleIdInAndPermissionId(List<Integer> ids,int permissionId);
+    List<RolePermission> findByRoleIdInAndPermissionId(List<Integer> ids, int permissionId);
 }

@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "zglu_role")
+@Table(name = "role")
 @EntityListeners(AuditingEntityListener.class)
 public class Role {
     @Id
