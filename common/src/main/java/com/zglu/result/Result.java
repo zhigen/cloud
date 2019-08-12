@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Result<T> {
 
-    private Integer code;
+    private int code;
     private String message;
     private T data;
 
@@ -21,21 +21,21 @@ public class Result<T> {
     }
 
     public boolean ifError() {
-        return code != 1;
+        return !ifSuccess();
     }
 
     public static <T> Result<T> success() {
         return new Result<>(ResultCode.SUCCESS);
     }
 
-    public static <T> Result<T> error() {
-        return new Result<>(ResultCode.ERROR);
-    }
-
     public static <T> Result<T> success(T data) {
         Result<T> result = success();
         result.setData(data);
         return result;
+    }
+
+    public static <T> Result<T> error() {
+        return new Result<>(ResultCode.ERROR);
     }
 
     public static <T> Result<T> error(ResultCode resultCode) {
