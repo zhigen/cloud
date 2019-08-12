@@ -1,7 +1,7 @@
 package com.zglu.controller;
 
-import com.zglu.entity.Permission;
-import com.zglu.repo.PermissionRepo;
+import com.zglu.dao.entity.Permission;
+import com.zglu.dao.repo.PermissionRepo;
 import com.zglu.result.Result;
 import com.zglu.result.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;

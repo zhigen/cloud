@@ -8,7 +8,6 @@
         <module>sys</module>
         <module>goods</module>
         <module>zuul</module>
-        <module>dao</module>
         <module>common</module>
         <module>gateway</module>
         <module>webflux</module>

@@ -1,7 +1,7 @@
 package com.zglu.controller;
 
-import com.zglu.entity.Role;
-import com.zglu.repo.RoleRepo;
+import com.zglu.dao.entity.Role;
+import com.zglu.dao.repo.RoleRepo;
 import com.zglu.result.Result;
 import com.zglu.result.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;

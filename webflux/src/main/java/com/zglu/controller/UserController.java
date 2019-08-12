@@ -1,7 +1,7 @@
 package com.zglu.controller;
 
-import com.zglu.entity.User;
-import com.zglu.repo.UserRepo;
+import com.zglu.dao.entity.User;
+import com.zglu.dao.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

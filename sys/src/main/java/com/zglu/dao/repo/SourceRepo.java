@@ -1,6 +1,6 @@
-package com.zglu.repo;
+package com.zglu.dao.repo;
 
-import com.zglu.entity.Source;
+import com.zglu.dao.entity.Source;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

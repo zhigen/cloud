@@ -1,10 +1,10 @@
 package com.zglu.controller;
 
-import com.zglu.entity.RolePermission;
-import com.zglu.entity.UserRole;
-import com.zglu.repo.PermissionRepo;
-import com.zglu.repo.RolePermissionRepo;
-import com.zglu.repo.UserRoleRepo;
+import com.zglu.dao.entity.RolePermission;
+import com.zglu.dao.entity.UserRole;
+import com.zglu.dao.repo.PermissionRepo;
+import com.zglu.dao.repo.RolePermissionRepo;
+import com.zglu.dao.repo.UserRoleRepo;
 import com.zglu.result.Result;
 import com.zglu.result.ResultCode;
 import com.zglu.utils.TokenUtil;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController("/user")

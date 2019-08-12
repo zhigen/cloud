@@ -1,4 +1,4 @@
-package com.zglu.entity;
+package com.zglu.dao.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
@@ -12,9 +12,9 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "source")
+@Table(name = "role")
 @EntityListeners(AuditingEntityListener.class)
-public class Source {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

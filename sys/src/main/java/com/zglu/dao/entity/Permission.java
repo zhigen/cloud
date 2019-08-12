@@ -1,4 +1,4 @@
-package com.zglu.entity;
+package com.zglu.dao.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
