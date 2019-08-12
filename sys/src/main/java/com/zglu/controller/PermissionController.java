@@ -16,7 +16,7 @@ public class PermissionController {
     private PermissionRepo permissionRepo;
 
     @GetMapping(value = "/permission/{id}")
-    public Result<Permission> get(@PathVariable int id){
+    public Result<Permission> get(@PathVariable int id) {
         Permission permission = permissionRepo.findById(id).orElse(null);
         if (permission == null) {
             return Result.error(ResultCode.DATA_NOT_EXIST);

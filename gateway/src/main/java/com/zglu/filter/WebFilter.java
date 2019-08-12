@@ -16,9 +16,9 @@ public class WebFilter extends AbstractGatewayFilterFactory<Object> {
         return ((exchange, chain) -> {
             //重写url
             ServerHttpRequest request = exchange.getRequest();
-            UriComponents uri = UriComponentsBuilder.fromHttpUrl(exchange.getRequest().getURI().toString().replaceFirst("/flux","")).build();
+            UriComponents uri = UriComponentsBuilder.fromHttpUrl(exchange.getRequest().getURI().toString().replaceFirst("/flux", "")).build();
             request = request.mutate().uri(uri.toUri()).build();
-            return chain.filter(exchange.mutate().request(request).build()).then(Mono.fromRunnable(()->{
+            return chain.filter(exchange.mutate().request(request).build()).then(Mono.fromRunnable(() -> {
 
             }));
         });

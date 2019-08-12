@@ -6,7 +6,7 @@
     <modules>
         <module>eureka</module>
         <module>sys</module>
-        <module>web</module>
+        <module>goods</module>
         <module>zuul</module>
         <module>dao</module>
         <module>common</module>

@@ -16,7 +16,7 @@ public class RoleController {
     private RoleRepo roleRepo;
 
     @GetMapping(value = "/role/{id}")
-    public Result<Role> get(@PathVariable int id){
+    public Result<Role> get(@PathVariable int id) {
         Role role = roleRepo.findById(id).orElse(null);
         if (role == null) {
             return Result.error(ResultCode.DATA_NOT_EXIST);

@@ -20,18 +20,18 @@ public class UserController {
     private UserRepo userRepo;
 
     @PostMapping
-    public Mono<User> save(@RequestBody User user){
+    public Mono<User> save(@RequestBody User user) {
         return userRepo.save(user);
     }
 
     @GetMapping("/{id}")
-    public Mono<User> save(@PathVariable String id){
+    public Mono<User> save(@PathVariable String id) {
         return userRepo.findById(id);
     }
 
     @GetMapping(value = "", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
-    public Flux<User> save(){
-        return userRepo.findBy();
+    public Flux<User> save() {
+        return userRepo.findAll();
     }
 
     @Bean

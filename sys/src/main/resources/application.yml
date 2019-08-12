@@ -8,7 +8,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://172.16.50.221:3306/java_text?useSSL=false
+    url: jdbc:mysql://172.16.50.220:3306/zglu_sys?useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 eureka:

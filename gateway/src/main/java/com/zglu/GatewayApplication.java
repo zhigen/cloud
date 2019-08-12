@@ -16,7 +16,7 @@ public class GatewayApplication {
     }
 
     @Bean
-    public CustomGlobalFilter customGlobalFilter(){
+    public CustomGlobalFilter customGlobalFilter() {
         return new CustomGlobalFilter();
     }
 }

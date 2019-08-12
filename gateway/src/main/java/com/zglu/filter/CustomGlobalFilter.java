@@ -13,12 +13,13 @@ import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
 import java.nio.CharBuffer;
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Log
@@ -34,12 +35,12 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        log.info(exchange.getRequest().getMethod()+" "+exchange.getRequest().getURI());
+        log.info(exchange.getRequest().getMethod() + " " + exchange.getRequest().getURI());
         log.info(getBodyFromRequest(exchange.getRequest()));
         Result result = check(exchange);
         if (result.ifSuccess()) {
             return chain.filter(exchange);
-        }else {
+        } else {
             //重写返回结果
             ServerHttpResponse response = exchange.getResponse();
             byte[] bits = JSON.toJSONString(result).getBytes(StandardCharsets.UTF_8);
@@ -49,15 +50,6 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
             response.getHeaders().add("Content-Type", "text/plain;charset=UTF-8");
             return response.writeWith(Mono.just(buffer));
         }
-    }
-
-    public Result check(ServerWebExchange exchange){
-        //校验权限
-        String url = exchange.getRequest().getURI().getPath();
-        String method = exchange.getRequest().getMethod().name();
-        MultiValueMap<String, String> multiValueMap = exchange.getRequest().getQueryParams();
-        String token = multiValueMap.getFirst("token");
-        return sysApi.get(url,method,token);
     }
 
     private String getBodyFromRequest(ServerHttpRequest serverHttpRequest) {
@@ -70,5 +62,14 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
             bodyRef.set(charBuffer.toString());
         });
         return bodyRef.get();
+    }
+
+    private Result check(ServerWebExchange exchange) {
+        //校验权限
+        String url = exchange.getRequest().getURI().getPath();
+        String method = exchange.getRequest().getMethod().name();
+        Map<String, String> multiValueMap = exchange.getRequest().getHeaders().toSingleValueMap();
+        String token = multiValueMap.get("token");
+        return sysApi.get(url, method, token);
     }
 }

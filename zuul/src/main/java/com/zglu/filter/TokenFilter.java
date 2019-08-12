@@ -6,6 +6,7 @@ import com.netflix.zuul.context.RequestContext;
 import com.zglu.result.Result;
 import com.zglu.service.SysApi;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class TokenFilter extends ZuulFilter {
@@ -39,11 +40,11 @@ public class TokenFilter extends ZuulFilter {
         return null;
     }
 
-    public Result check(HttpServletRequest request){
+    public Result check(HttpServletRequest request) {
         //校验权限
         String url = request.getRequestURI();
         String method = request.getMethod();
-        String token = request.getParameter("token");
-        return sysApi.get(url,method,token);
+        String token = request.getHeader("token");
+        return sysApi.get(url, method, token);
     }
 }
