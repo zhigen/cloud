@@ -33,14 +33,14 @@ public class TokenFilter extends ZuulFilter {
     public Object run() {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
-        Result result = check(request);
+        Result result = checkToken(request);
         if (!result.ifSuccess()) {
             requestContext.setResponseBody(JSON.toJSONString(result));
         }
         return null;
     }
 
-    public Result check(HttpServletRequest request) {
+    public Result checkToken(HttpServletRequest request) {
         //校验权限
         String url = request.getRequestURI();
         String method = request.getMethod();

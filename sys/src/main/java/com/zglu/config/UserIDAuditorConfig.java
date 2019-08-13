@@ -9,6 +9,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
+/**
+ * 获取登录用户id,写入操作人字段
+ */
 @Configuration
 public class UserIDAuditorConfig implements AuditorAware<Integer> {
 
